@@ -1,0 +1,9 @@
+html {
+	background: url(riddler.png) no-repeat center center fixed;
+	background-size: cover;
+	background-size: cover;
+	background-color: transparent !important;
+}
+body {
+    background-color: transparent !important;
+}
