@@ -1,6 +1,5 @@
 html {
-	background: url(riddler.png) no-repeat center center fixed;
-	background-size: cover;
+	background: url(/static/riddler-photo) no-repeat center center fixed;
 	background-size: cover;
 	background-color: transparent !important;
 }
