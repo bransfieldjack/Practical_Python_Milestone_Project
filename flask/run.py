@@ -43,19 +43,15 @@ riddles = [
     }
 ]
 
+
 @app.route('/')
 def quiz():
     return render_template('index.html', riddle_data = random.choice(riddles))
     
     
-@app.route('/')
-def main():
-    return render_template('main.js')
-    
-    
 if __name__ == '__main__':
     app.run(host=os.environ.get("IP"),
-            port=int(os.environ.get("PORT")), 
-            debug=True)
+        port=int(os.environ.get("PORT")), 
+        debug=True)
             
             
