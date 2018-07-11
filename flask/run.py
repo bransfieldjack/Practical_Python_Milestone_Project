@@ -16,12 +16,12 @@ def write_file(filename, message):
 		file.writelines(message + "\n")
 
 
-
 """
-Reusable function for adding text to the messages.txt file
+Add new users to the users file
 """
-
-
+def new_user(username):
+	write_file("files/users.txt", username)
+	
 
 @app.route("/", methods = ["GET", "POST"])
 def index():
@@ -29,13 +29,13 @@ def index():
 	Welcome page, add username. 
 	"""
 	if request.method == "POST":
-		write_file("files/users.txt", request.form["username"])
-		return redirect("riddle")
+		new_user(request.form["username"])
+		return redirect(request.form["username"])
 	return render_template("index.html")
 
 
-@app.route("/riddle", methods = ["GET","POST"])
-def riddle():
+@app.route("/<username>", methods = ["GET","POST"]) #Username passed from index function, value optaine from form post. 
+def riddle(username):
 	#Load the json file containing the riddles
 	riddles = []
 	with open("data/riddles.json", "r") as riddle_data:
@@ -43,19 +43,35 @@ def riddle():
 		#Set the index to 0 to display the first riddle in the list first
 		index = 0
 		
+		
 		if request.method == "POST":
 			index = int(request.form["index"])	#Specify index to be an integer not a string or else will return a type error
 			user_answer = request.form["answer"].lower()
 			if riddles[index]["answer"] == user_answer:
 				index += 1
+				write_file("files/correct_answers.txt", user_answer + username)
 			else:
-				write_file("files/incorrect_answers.json", user_answer)
+				write_file("files/incorrect_answers.json", user_answer + username)
+			
 			
 		if request.method == "POST":
 			if user_answer == "palmtree" and index >= 7:
 				return render_template("game_over.html")
 			
-	return render_template("riddles.html", riddle_question = riddles, index = index)
+			
+	with open("files/users.txt", "r") as users:
+		online_users = users.read(100000) 
+			
+	
+	with open("files/correct_answers.txt", "r") as answers:
+		correct_answers = answers.read(100000)
+			
+			
+	with open("files/incorrect_answers.txt", "r") as incorrect:
+		incorrect_answers = incorrect.read(100000)
+			
+			
+	return render_template("riddles.html", riddle_question = riddles, index = index, online_users = online_users, correct_answers = correct_answers, incorrect_answers = incorrect_answers, username = username)
 	
 	
 @app.route("/gameover", methods = ["GET","POST"])
@@ -69,5 +85,3 @@ if __name__ == '__main__':
 	app.run(host=os.environ.get("IP"),
 		port=int(os.environ.get("PORT")), 
 		debug=True)
-			
-			
