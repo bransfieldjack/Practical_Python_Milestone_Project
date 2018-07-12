@@ -9,6 +9,36 @@ app.secret_key = "secret"
 
 
 """
+Get all correct answers
+"""
+def get_all_answers():
+	answers = []
+	with open("data/correct_answers.txt", "r") as correct_answers:
+		answers = [row for row in correct_answers]
+		return answers
+
+
+"""
+Get all incorrect answers
+"""
+def get_all_incorrect_answers():
+	answers = []
+	with open("data/incorrect_answers.txt", "r") as incorrect_answers:
+			answers = [row for row in incorrect_answers]
+			return answers
+
+
+"""
+Get all online users
+"""
+def get_all_online_users():
+	users = []
+	with open("data/users.txt", "r") as online_users:
+			users = [row for row in online_users]
+			return users
+			
+
+"""
 Reusable function for opening a file and writing to it
 """
 def write_file(filename, message):
@@ -20,7 +50,7 @@ def write_file(filename, message):
 Add new users to the users file
 """
 def new_user(username):
-	write_file("files/users.txt", username)
+	write_file("data/users.txt", username)
 	
 
 @app.route("/", methods = ["GET", "POST"])
@@ -49,26 +79,19 @@ def riddle(username):
 			user_answer = request.form["answer"].lower()
 			if riddles[index]["answer"] == user_answer:
 				index += 1
-				write_file("files/correct_answers.txt", user_answer + username)
+				write_file("data/correct_answers.txt", "{0}" " ({1})" .format(user_answer, username))
 			else:
-				write_file("files/incorrect_answers.json", user_answer + username)
+				write_file("data/incorrect_answers.txt", "{0}" " ({1})" .format(user_answer, username))
 			
 			
 		if request.method == "POST":
 			if user_answer == "palmtree" and index >= 7:
 				return render_template("game_over.html")
-			
-			
-	with open("files/users.txt", "r") as users:
-		online_users = users.read(100000) 
-			
 	
-	with open("files/correct_answers.txt", "r") as answers:
-		correct_answers = answers.read(100000)
-			
-			
-	with open("files/incorrect_answers.txt", "r") as incorrect:
-		incorrect_answers = incorrect.read(100000)
+	
+	correct_answers = get_all_answers()		
+	incorrect_answers = get_all_incorrect_answers()
+	online_users = get_all_online_users()
 			
 			
 	return render_template("riddles.html", riddle_question = riddles, index = index, online_users = online_users, correct_answers = correct_answers, incorrect_answers = incorrect_answers, username = username)
