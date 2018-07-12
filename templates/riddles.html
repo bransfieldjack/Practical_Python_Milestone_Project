@@ -3,7 +3,7 @@
 <html>
 
 <head>
-    <title>Riddle me this... </title>
+    <title>Riddle me this. </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -91,7 +91,7 @@ h2 {
     <br>
     <div class="container-fluid text-center">    
           
-              <div class="col-lg-4 sidenav">
+              <div class="col-lg-6 sidenav">
                 <h1>Current Online Users: </h1>
                <br>
                 {% for user in online_users %}
@@ -101,17 +101,8 @@ h2 {
                <br>
               </div>
               
-              <div class="col-lg-4 sidenav">
-                <h1>Correct Answers: </h1>
-               <br>
-                {% for answer in correct_answers %}
-                <ul>{{ answer }}</ul>
-                {% endfor %}
-               <br>
-               <br>
-              </div>
               
-              <div class="col-lg-4 sidenav">
+              <div class="col-lg-6 sidenav">
                <h1>Incorrect Answers: </h1>
               <br>
                {% for incorrect in incorrect_answers %}

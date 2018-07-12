@@ -8,14 +8,6 @@ app = Flask(__name__)
 app.secret_key = "secret"
 
 
-"""
-Get all correct answers
-"""
-def get_all_answers():
-	answers = []
-	with open("data/correct_answers.txt", "r") as correct_answers:
-		answers = [row for row in correct_answers]
-		return answers
 
 
 """
@@ -64,7 +56,7 @@ def index():
 	return render_template("index.html")
 
 
-@app.route("/<username>", methods = ["GET","POST"]) #Username passed from index function, value optaine from form post. 
+@app.route("/<username>", methods = ["GET","POST"]) #Username passed from index function, value optained from form post. 
 def riddle(username):
 	#Load the json file containing the riddles
 	riddles = []
@@ -86,22 +78,24 @@ def riddle(username):
 			
 		if request.method == "POST":
 			if user_answer == "palmtree" and index >= 7:
-				return render_template("game_over.html")
+				return redirect("game_over")
 	
 	
-	correct_answers = get_all_answers()		
 	incorrect_answers = get_all_incorrect_answers()
 	online_users = get_all_online_users()
 			
 			
-	return render_template("riddles.html", riddle_question = riddles, index = index, online_users = online_users, correct_answers = correct_answers, incorrect_answers = incorrect_answers, username = username)
+	return render_template("riddles.html", riddle_question = riddles, index = index, online_users = online_users, incorrect_answers = incorrect_answers, username = username)
 	
 	
-@app.route("/gameover", methods = ["GET","POST"])
+@app.route("/game_over", methods = ["GET","POST"])
 def game_over():
-	if request.method == "POST":
-		return render_template("/")
-	return render_template("game_over.html")
+	answers = []
+	with open("data/correct_answers.txt", "r") as correct_answers:
+		answers = [row for row in correct_answers]
+	
+		
+	return render_template("game_over.html", answers = answers)
 
 
 if __name__ == '__main__':
