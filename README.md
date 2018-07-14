@@ -1,3 +1,3 @@
 # Riddle Me This. 
-# Practical Python - Milestone Project. 
-# Jack Branfield - Code Institute, Full Stack Web Development. 
+## Practical Python - Milestone Project. 
+## Jack Bransfield - Code Institute, Full Stack Web Development. 
