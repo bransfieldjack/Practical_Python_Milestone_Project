@@ -39,16 +39,16 @@
 
     Changed condition on when the riddles are no longer displayed by removing:
     
-    ~~~~
+    ```
     if request.method == "POST":
 			if user_answer == "palmtree" and index >= 7:
 				return redirect("game_over")
-    ~~~~
+    ```
     
     Replacing with:
     
-    ~~~~
+    ```
     if request.method == "POST":
 			if index >= 8:
 				return redirect("game_over")
-	~~~~
+	```
