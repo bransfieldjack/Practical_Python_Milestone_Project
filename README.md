@@ -1,5 +1,6 @@
 # Riddle Me This. Practical Python - Milestone Project.
 
+
 ## Jack Bransfield - Code Institute, Full Stack Web Development. 
  The project can be accessed from the following link: [riddle-project](https://riddle-project.herokuapp.com/)
 
@@ -12,6 +13,7 @@
     More than one user can play at the same time, and they are identified by a unique username of their choosing. 
     Upon completion of the game, (when all riddles have been aswered correctly) users will be able to view their results on a scoreboard. 
 
+
 ### Technologies used and functionality:
     Technologies used in this project include:
     
@@ -21,7 +23,8 @@
     * Flask Microframework: Flask was used to extend pythons functionality to the frond end. 
     * Balsamiq Cloud: Used for wireframes.
 
-### Testing
+
+### Testing:
 
 
 ### Wireframe/Design:
@@ -32,3 +35,20 @@
 ### Deploying the project:
 
 
+### Code Refactoring:
+
+    Changed condition on when the riddles are no longer displayed by removing:
+    
+    ~~~~
+    if request.method == "POST":
+			if user_answer == "palmtree" and index >= 7:
+				return redirect("game_over")
+    ~~~~
+    
+    Replacing with:
+    
+    ~~~~
+    if request.method == "POST":
+			if index >= 8:
+				return redirect("game_over")
+	~~~~
