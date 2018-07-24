@@ -2,31 +2,12 @@ import os
 import json
 import copy
 from flask import Flask, request, redirect, render_template
+from collections import Counter
 
 
 app = Flask(__name__)
 app.secret_key = "secret"
 
-
-"""
-Get all incorrect answers
-"""
-def get_all_incorrect_answers():
-	answers = []
-	with open("data/incorrect_answers.txt", "r") as incorrect_answers:
-			answers = [row for row in incorrect_answers]
-			return answers
-
-
-"""
-Get all online users
-"""
-def get_all_online_users():
-	users = []
-	with open("data/users.txt", "r") as online_users:
-			users = [row for row in online_users]
-			return users
-			
 
 """
 Reusable function for opening a file and writing to it
@@ -41,7 +22,35 @@ Add new users to the users file
 """
 def new_user(username):
 	write_file("data/users.txt", username)
-	
+
+
+"""
+Get all incorrect answers
+"""
+def get_all_incorrect_answers():
+	answers = []
+	with open("data/incorrect_answers.txt", "r") as incorrect_answers:
+			answers = [row for row in incorrect_answers]
+			return answers[-8:]
+
+
+"""
+Get all online users
+"""
+def get_all_online_users():
+	users = []
+	with open("data/users.txt", "r") as online_users:
+			users = [row for row in online_users]
+			return users[-8:]
+			
+
+"""
+Get high scores
+"""
+def scores():
+	with open("data/scores.txt", "r") as scoreboard:
+		return Counter(scoreboard.read().split())
+		
 
 @app.route("/", methods = ["GET", "POST"])
 def index():
@@ -62,6 +71,7 @@ def riddle(username):
 		riddles = json.load(riddle_data)	
 		#Set the index to 0 to display the first riddle in the list first
 		index = 0
+		score = 0
 		
 		
 		if request.method == "POST":
@@ -70,30 +80,30 @@ def riddle(username):
 			if riddles[index]["answer"] == user_answer:
 				index += 1
 				write_file("data/correct_answers.txt", "{0}" " ({1})" .format(user_answer, username))
+				score = score + 1
 			else:
 				write_file("data/incorrect_answers.txt", "{0}" " ({1})" .format(user_answer, username))
 			
 			
 		if request.method == "POST":
-			if user_answer == "palmtree" and index >= 7:
+			if index >= 8:
+				write_file("data/scores.txt", "{0}" " ({1})" .format(score, username))
 				return redirect("game_over")
 	
 	
 	incorrect_answers = get_all_incorrect_answers()
 	online_users = get_all_online_users()
+	
 			
-			
-	return render_template("riddles.html", riddle_question = riddles, index = index, online_users = online_users, incorrect_answers = incorrect_answers, username = username)
+	return render_template("riddles.html", riddle_question = riddles, index = index, online_users = online_users, incorrect_answers = incorrect_answers, username = username, score = score)
 	
 	
 @app.route("/game_over", methods = ["GET","POST"])
 def game_over():
-	answers = []
-	with open("data/correct_answers.txt", "r") as correct_answers:
-		answers = [row for row in correct_answers]
 	
-		
-	return render_template("game_over.html", answers = answers)
+	high_scores = scores()
+			
+	return render_template("game_over.html", high_scores = high_scores)
 
 
 if __name__ == '__main__':

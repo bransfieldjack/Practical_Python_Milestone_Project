@@ -109,8 +109,8 @@ h2 {
                   <br>
                   <br>
                     <h1> Scoreboard: </h1>
-                      {% for ans in answers %}
-                        <ul>{{ ans }}</ul>
+                      {% for score in high_scores.items() %}
+                        <ul>{{ score }}</ul>
                       {% endfor %}
                   <br>
                   <br>

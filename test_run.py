@@ -1,3 +1,4 @@
+import unittest.mock
 import unittest
 import run
 
@@ -17,3 +18,8 @@ class test_riddle(unittest.TestCase):   #Test suite.
     def get_data(self): #Test to check that data list is empty to begin with. (Test Passing)
         data = []
         self.assertEqual(len(data),0)
+        
+    def test(self, m): 
+        m.foo ="bar"
+        
+        assert m.foo == "bar"
