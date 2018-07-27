@@ -25,6 +25,8 @@ Technologies used in this project include:
 
 
 ### Testing:
+Benefits of using unittest.mock:
+Do not want to mess with system files during testing.
 
 
 ### Wireframe/Design:

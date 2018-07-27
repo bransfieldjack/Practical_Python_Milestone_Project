@@ -1,9 +1,9 @@
-import unittest.mock
 import unittest
+import unittest.mock
 import run
 
 
-class test_riddle(unittest.TestCase):   #Test suite.
+class test_run(unittest.TestCase):   #Test suite.
     
     
     def test_is_this_thing_on(self):    #Basic functionality test. (Test Passing)
@@ -19,7 +19,13 @@ class test_riddle(unittest.TestCase):   #Test suite.
         data = []
         self.assertEqual(len(data),0)
         
-    def test(self, m): 
-        m.foo ="bar"
         
-        assert m.foo == "bar"
+    def test_request(self):
+        url = "/templates/index.html"
+        self.assertTrue(url, "/templates/index.html")
+        
+        
+    def test_index_function(self, mocked_index):
+        mocked_index.return_value = 1
+        self.assertEqual(mocked_index, 1)
+        
