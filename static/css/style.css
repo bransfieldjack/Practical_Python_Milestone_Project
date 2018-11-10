@@ -1,0 +1,51 @@
+html,body {
+    position:relative; 
+    margin:0;
+    padding:0;
+    overflow:auto; 
+    height: 100%;
+    background-image: url("/static/pictures/abstract_hallway.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+container {
+    position:relative; 
+}
+.bg {
+    /* The image used */
+    
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.navbar {
+background-color:transparent;
+}
+h1 {
+  color: #dce1ea;
+}
+h2 {
+  color: #d83006;
+}
+.text-muted {
+    color: #dce1ea;
+}
+#footer {
+    height: 60px;
+    width: 100%;
+    background-position: 0% 0%;
+    position: fixed;
+    bottom: 0pt;
+    left: 0pt;
+    line-height: 60px;
+    background-color: #f5f5f5;
+}
+
+
