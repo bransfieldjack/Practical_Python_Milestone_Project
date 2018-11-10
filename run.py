@@ -1,7 +1,7 @@
 import os 
 import json
 import copy
-from flask import Flask, request, redirect, render_template
+from flask import Flask, session, request, redirect, render_template
 from collections import Counter
 
 
@@ -58,12 +58,13 @@ def index():
 	Welcome page, add username. 
 	"""
 	if request.method == "POST":
-		new_user(request.form["username"])
+		username = request.form["username"]
+		session["user"] = username
 		return redirect(request.form["username"])
 	return render_template("index.html")
 
 
-@app.route("/<username>", methods = ["GET","POST"]) #Username passed from index function, value optained from form post. 
+@app.route("/<username>", methods = ["GET","POST"]) #Username passed from index function, value obtained from form post. 
 def riddle(username):
 	#Load the json file containing the riddles
 	riddles = []

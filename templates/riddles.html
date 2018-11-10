@@ -19,6 +19,7 @@ html,body {
     margin:0;
     padding:0;
     overflow:auto; 
+    margin-bottom: 100px;
 }
 .navbar {
 background-color: #a0b5d6;
@@ -43,11 +44,10 @@ h2 {
 </style>
 
 <body>
-    <nav class="navbar">
+   
       <div class="container-fluid">
         <div class="navbar-header">
-          <h1> Player: {{ username }} </h1>
-          <a class="navbar-brand" href="#"></a>
+          <a class="navbar-brand" href="#"><h1> Player: {{session['user']}} </h1></a>
             </div>
                 <a class="navbar-brand navbar-right" href="#"></a>
             </div>
@@ -90,9 +90,7 @@ h2 {
               <div class="col-lg-6 sidenav">
                 <h1>Current Online Users: </h1>
                <br>
-                {% for user in online_users %}
-                <ul>{{ user }}</ul>
-                {% endfor %}
+                {{session['user']}}
                <br>
                <br>
               </div>
@@ -101,11 +99,11 @@ h2 {
               <div class="col-lg-6 sidenav">
                <h1>Incorrect Answers: </h1>
               <br>
-               {% for incorrect in incorrect_answers %}
-               <ul>{{ incorrect }}</ul>
-               {% endfor %}
-              <br>
-              <br>
+               <div class="row">
+                 {% for incorrect in incorrect_answers %}
+                 <ul>{{ incorrect }}</ul>
+                 {% endfor %}
+               </div>
               </div>
               
            </div>
