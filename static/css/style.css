@@ -4,7 +4,7 @@ html,body {
     padding:0;
     overflow:auto; 
     height: 100%;
-    background-image: url("/static/pictures/abstract_hallway.jpg");
+    background-image: url("/static/pictures/abstract_hallway_dark.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -29,10 +29,13 @@ container {
 background-color:transparent;
 }
 h1 {
-  color: #dce1ea;
+  color: #9aa09a;
 }
 h2 {
   color: #d83006;
+}
+.p {
+    color: #dce1ea;
 }
 .text-muted {
     color: #dce1ea;

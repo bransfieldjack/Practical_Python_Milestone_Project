@@ -1,99 +1,75 @@
 {% extends 'base.html' %} {% block content %}
 
-<nav class="navbar navbar-expand-lg navbar-dark">
-  <div class="container">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#"></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Services</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-    
-    <div class="container-fluid text-center">   
-      <div class="row content">
-        <div class="col-sm-2 sidenav">
-         </div>
-           <div class="col-lg-12 text-center"> 
-            <br>
-            <br>
-            <br>
-              <h1> {{ riddle_question[index]["question"] }} </h1>
-                <br>
-                  <form method='POST'>
-                    <div class="form-group">
-                      <br>
-                        <u>
-                          <h2><input type="text" placeholder="Answer " name="answer" id="answer"></h2>
-                              <input type="hidden" name="index" id="index" value={{index}}>
-                              <button class="btn">Submit </button>
-                        </u>
-                    </div>
-                  </form>
-           </div>
-           
-           
-    </div>
-  </div>
-    
-    
-    <br>
-    <br>
-    <div class="container-fluid text-center">    
-          
-              <div class="col-lg-6 sidenav">
-                <h1>Current Online Users: </h1>
-               <br>
-                {{session['user']}}
-               <br>
-               <br>
-              </div>
-              
-              
-              <div class="col-lg-6 sidenav">
-               <h1>Incorrect Answers: </h1>
-              <br>
-               <div class="row">
-                 {% for incorrect in incorrect_answers %}
-                 <ul>{{ incorrect }}</ul>
-                 {% endfor %}
-               </div>
-              </div>
-              
-           </div>
-          </div>  
-    </div>        
-    
-    
-    
-     <div id="footer">
+   <nav class="navbar navbar-expand-lg navbar-dark">
       <div class="container">
-        <div class="row">
-          <div class="col-lg-6">
-            <span class="text-muted">Riddle me this, Code Institute Python/Flask Project.</span>
-          </div>
-          <div class="col-lg-6">
-            <span class="text-muted"><p>Jack Bransfield. <a href="https://github.com/bransfieldjack">Github</a></p></span>
-          </div>
-        </div>
-      </div>
-    </div>
+         <div class="collapse navbar-collapse" id="navbarResponsive">
+            
+            <ul class="navbar-nav ml-auto">
 
-</body>
-</html>
+               <li class="nav-item">
+                  <a class="nav-link" href="{{url_for('scoreboard')}}"><h1 style="color:#9aa09a;">Scoreboard</h1></a>
+               </li>
+               
+            </ul>
+            
+         </div>
+      </div>
+   </nav>
+    
+   <div class="container-fluid text-center">   
+      <div class="row">
+         
+         <div class="col-sm-4 text-center">
+         </div>
+         
+               <div class="col-sm-4 text-center"> 
+                  <br>
+                  <br>
+                  <br>
+                  <h1 style="color:#9aa09a;"> {{ riddle_question[index]["question"] }} </h1>
+                  <br>
+                  
+                  <form method='POST'>
+                     <div class="form-group">
+                        <br>
+                        <u>
+                           <h2><input type="text" class="form-control" placeholder="Answer " name="answer" id="answer"></h2>
+                           <input type="hidden" class="form-control" style="color:#9aa09a;" name="index" id="index" value={{index}}>
+                           <button class="btn btn-secondary btn-block">Submit </button>
+                        </u>
+                     </div>
+                  </form>
+                  
+               </div>
+               
+         <div class="col-sm-4 text-center">
+         </div>
+               
+      </div>
+   </div>
+    
+   <br>
+   <br>
+    
+   <div class="container-fluid text-center">  
+   
+      <div class="row">  
+      
+         <div class="col-lg-6">
+            <h1 style="color:#9aa09a;">Current Online Users: </h1>
+            <br>
+            <p style="color: #ffe1d3">{{session['user']}}</p>
+            <br>
+         </div>
+  
+         <div class="col-lg-6">
+            <h1 style="color:#9aa09a;">Incorrect Answers: </h1>
+            <br>
+            {% for incorrect in incorrect_answers %}
+            <p style="color: #ffe1d3">{{ incorrect }}</p>
+            {% endfor %}
+         </div>
+         
+   </div>        
 
 {% endblock %}

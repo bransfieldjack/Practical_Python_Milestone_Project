@@ -1,31 +1,14 @@
-france (jack)
-fired (Jones)
-star wars (Paul)
-cin (Paul)
-wrong (Paul)
-test (Paul)
-jokes (Paul)
-lol (Paul)
-frankies (Paul)
-rugby (Paul)
-fired (Paul)
-wrong answer (Gary)
-paltree (Dhiral)
-mike (game_over)
-neele (Jack)
-wrong (John)
-wrong again (John)
-wrong again (John)
-totally wrong (John)
-so wrong (John)
-so wrong (John)
-111 (John)
-112 (John)
-112 (John)
-another wrong answer (John)
-test wrong answer (John)
-test wrong answer 2 (John)
-test wrong answer 2 (John)
-test wrong answer 2 (John)
-test wrong answer 2 (John)
-test wrong answer 2 (John)
+John Answer: Date: Sun Nov 11 07:32:47 2018
+Franz Answer: Date: Sun Nov 11 07:39:34 2018
+Username: 007,
+Answer: wrong
+Date: Sun Nov 11 07:54:07 2018
+
+Username: 007,
+Answer: wrong1
+Date: Sun Nov 11 07:54:09 2018
+
+Username: 007,
+Answer: wrong2
+Date: Sun Nov 11 07:54:14 2018
+
