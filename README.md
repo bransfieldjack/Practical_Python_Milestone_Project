@@ -58,6 +58,7 @@ Unit testing was conducted as much and as frequently as possible.
 For test cases where the unittest  framework could not be applied to the work, a seperate test_run.py file was used to test standalone python functions. 
 The purpose of unit testing with python is to recognise bugs/issues with the code early on in the development process. 
 
+### Unit testing in python
 
 ```
 #Test No.1, to compare two values and return the result. 
@@ -87,8 +88,55 @@ The purpose of unit testing with python is to recognise bugs/issues with the cod
             self.assertEqual(v, value)
 ```
 
+[I/O operation on a closed file.](https://s3-ap-southeast-2.amazonaws.com/practical-python-milestone-project/input_output_operation_on_closed_file.PNG)
+
+[Read/Write permissions granted.](https://s3-ap-southeast-2.amazonaws.com/practical-python-milestone-project/read_write_permissions_granted_text_file.PNG)
+
+[Value not expected.](https://s3-ap-southeast-2.amazonaws.com/practical-python-milestone-project/value_not_expected.PNG)
+
+
+### Custom Python Test Functions
+ 
  
 ## Manual Testing
+
+
+Linking/pages:
+
+Checked all outgoing (page to page) and internal links (form submission button).
+Confirmed that no orphan pages exist as part of this project. (Un-used pages left over from the development process)
+
+Form Testing:
+
+Tested form submission link.
+
+Cookies Testing:
+
+Disabled cookies and confirmed that the site behaves as per normal.
+No observable effect on application security after disabling cookies during or outside of a session.
+
+HTML Validation:
+
+Validated all HTML code using: https://validator.w3.org/ (Fixed minor errors/warnings)
+
+Database Testing:
+
+Not applicable.
+
+Ease of Learning:
+
+The app is quite minimal. Everything the user needs in terms of information is clearly displayed. Clickable links are made obvious when appropriate.
+
+Navigation:
+
+The site is relatively easy to navigate. 
+The user cannot progress throughout the game without entering a username. 
+The sites scoreboard can be accessed via the link provided. 
+
+Compatability:
+
+Cross browser compatability testing has been conducted using Chrome, Firefox, Edge and Opera.
+Mobile compatability testing has been undertaken to ensure that the site works well on mobile devices. 
 
 
 ## Wireframe/Design:
