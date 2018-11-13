@@ -88,11 +88,11 @@ The purpose of unit testing with python is to recognise bugs/issues with the cod
             self.assertEqual(v, value)
 ```
 
-["I/O operation on a closed file."](https://s3-ap-southeast-2.amazonaws.com/practical-python-milestone-project/input_output_operation_on_closed_file.PNG)
+!["I/O operation on a closed file."](https://s3-ap-southeast-2.amazonaws.com/practical-python-milestone-project/input_output_operation_on_closed_file.PNG)
 
-["Read/Write permissions granted."](https://s3-ap-southeast-2.amazonaws.com/practical-python-milestone-project/read_write_permissions_granted_text_file.PNG)
+!["Read/Write permissions granted."](https://s3-ap-southeast-2.amazonaws.com/practical-python-milestone-project/read_write_permissions_granted_text_file.PNG)
 
-["Value not expected."](https://s3-ap-southeast-2.amazonaws.com/practical-python-milestone-project/value_not_expected.PNG)
+!["Value not expected."](https://s3-ap-southeast-2.amazonaws.com/practical-python-milestone-project/value_not_expected.PNG)
 
 
 ### Custom Python Test Functions
