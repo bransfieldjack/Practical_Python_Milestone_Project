@@ -58,6 +58,7 @@ Unit testing was conducted as much and as frequently as possible.
 For test cases where the unittest  framework could not be applied to the work, a seperate test_run.py file was used to test standalone python functions. 
 The purpose of unit testing with python is to recognise bugs/issues with the code early on in the development process. 
 
+
 ### Unit testing in python
 
 ```
@@ -90,12 +91,15 @@ The purpose of unit testing with python is to recognise bugs/issues with the cod
 
 !["I/O operation on a closed file."](https://s3-ap-southeast-2.amazonaws.com/practical-python-milestone-project/input_output_operation_on_closed_file.PNG)
 
+
 !["Read/Write permissions granted."](https://s3-ap-southeast-2.amazonaws.com/practical-python-milestone-project/read_write_permissions_granted_text_file.PNG)
+
 
 !["Value not expected."](https://s3-ap-southeast-2.amazonaws.com/practical-python-milestone-project/value_not_expected.PNG)
 
 
 ### Custom Python Test Functions
+ 
  
 ```
 #Non python-unit testing functions:
@@ -120,6 +124,7 @@ def test_riddle_file(file, value):
 test_file_2(file="test_file.txt", value="test")
 test_riddle_file(file="test_riddles.json", value="test")
 ```
+ 
  
 ## Manual Testing
 
@@ -165,6 +170,11 @@ Mobile compatability testing has been undertaken to ensure that the site works w
 ## Wireframe/Design:
 Wireframing for this app was done using Balsamiq Mockups (Web based).
 Files were transferred to Cloud 9 from my local machine.
+
+
+![](https://s3-ap-southeast-2.amazonaws.com/practical-python-milestone-project/index_page.PNG)
+![](https://s3-ap-southeast-2.amazonaws.com/practical-python-milestone-project/riddle_page.PNG)
+![](https://s3-ap-southeast-2.amazonaws.com/practical-python-milestone-project/game_over_page.PNG)
 
 
 ## Deploying the project:
