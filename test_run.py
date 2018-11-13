@@ -1,31 +1,25 @@
-import unittest
-import unittest.mock
-import run
+import json
 
 
-class test_run(unittest.TestCase):   #Test suite.
+#Non python-unit testing functions:
     
     
-    def test_is_this_thing_on(self):    #Basic functionality test. (Test Passing)
-        self.assertEqual(1, 1)
+#Compare that the value retrieved from a text file is as expected. 
+def test_file_2(file, value):
+    with open(file) as f:
+        f.writelines(value + "\n")
+    if value == f:
+        print("Test has completed with success. ")
         
         
-    def write_file(self, message):  #Test opening some file and writing data to it. (Test Passing)
-        with open (self, 'a') as file:
-        	file.writelines(message + "\n")
+def test_riddle_file(file, value):
+    riddles = []
+    with open(file, "r") as riddle_data:
+        riddles = json.load(riddle_data)	
+                
+    if riddles == value:
+        print("Test is completing with success. ")
         
-        
-    def get_data(self): #Test to check that data list is empty to begin with. (Test Passing)
-        data = []
-        self.assertEqual(len(data),0)
-        
-        
-    def test_request(self):
-        url = "/templates/index.html"
-        self.assertTrue(url, "/templates/index.html")
-        
-        
-    def test_index_function(self, mocked_index):
-        mocked_index.return_value = 1
-        self.assertEqual(mocked_index, 1)
-        
+
+test_file_2(file="test_file.txt", value="test")
+test_riddle_file(file="test_riddles.json", value="test")

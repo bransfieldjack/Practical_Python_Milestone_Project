@@ -37,7 +37,6 @@ def get_all_online_users():
 			return users[-8:]
 			
 
-
 #Get high scores
 def scores():
 	find = []
