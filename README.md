@@ -178,7 +178,25 @@ Files were transferred to Cloud 9 from my local machine.
 
 
 ## Deploying the project:
+This app is currently being hosted on Heroku. 
+Instructions for deploying the code are as follows:
 
+### From the Heroku Dashboard:
+
+* Login to your heroku account.
+* From the dashboard, select: New > Create New App.
+* Select an appropriate App Name as per the on-screen instructions, and the most relevant hosting region. 
+* Select Create App.
+
+### From the bash command line/local repo:
+
+* Logon to your heroku account using the 'heroku login' command. 
+* Initialise your repo, if you havent already done so.
+* Connect the Heroku App repo using the 'heroku git:remote -a (app name)' command.
+* In order for Heroku to build your app, you will need to specify the requirements using the following command: 'sudo pip3 freeze --local > requirements.txt'.
+* You will also need to generate a "Procfile" before pushing your code. This acts as the entry point for your application. To generate this file, use the 'echo web: python app.py > Procfile' command from bash.
+* Use git add. to save your work.
+* Add your first commit (git commit -m "Initial Commit. "), then use 'git push heroku master' to push your code to Heroku. 
 
 ## Examples of Code Refactoring:
 
