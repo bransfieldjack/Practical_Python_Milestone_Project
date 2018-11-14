@@ -197,6 +197,10 @@ Instructions for deploying the code are as follows:
 * You will also need to generate a "Procfile" before pushing your code. This acts as the entry point for your application. To generate this file, use the 'echo web: python app.py > Procfile' command from bash.
 * Use git add. to save your work.
 * Add your first commit (git commit -m "Initial Commit. "), then use 'git push heroku master' to push your code to Heroku. 
+* To complete the process and ensure that your app will run, set the appropriate config variables from the heroku settings tab. 
+* Create an 'IP' config var, with a corresponding value of: 0.0.0.0.
+* Create a 'PORT' config var, with a corresponding value of: 5000.
+* To access the application, click open on the heroku console (top right) and record the apps URL. 
 
 ## Examples of Code Refactoring:
 
